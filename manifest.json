@@ -1,0 +1,29 @@
+{
+  "name": "BelTab",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Extension for Google Chrome to aide with Belmont University students' interactions with the
+  university's student website.",
+  "homepage_url":"none",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "page_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "page action demo",
+    "default_popup": "src/page_action/page_action.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "src/override/override.html"
+  },
+  "permissions": [
+    "https://my.belmont.edu"
+  ]
+}
