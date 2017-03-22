@@ -1,31 +1,52 @@
-# MeanContactlistAngular2
+# JavaScript SCRUM Board // SP17 Software Engineering Project
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project was built from Heroku's MEANContactList2 tutorial.
+https://devcenter.heroku.com/articles/mean-apps-restful-api#prerequisites
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+Heroku CLI
+`brew install heroku`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Node.js
+https://nodejs.org/en/download/
 
-## Build
+Angular CLI
+`npm install -g angular-cli`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+MongoDB
+`brew install mongodb`
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Clone the repo into a directory of your choice.
+`git clone https://github.com/benminer/JS-Scrum-Board.git`
 
-## Running end-to-end tests
+Navigate to the directory that it was cloned into, then install dependencies.
+`npm install`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+Log into your Heroku account through terminal to allow commits and pushes.
+`heroku login`
 
-## Deploying to GitHub Pages
+## Initialize LocalHost for testing
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+Make a MongoDB folder in your root directory.
+`mkdir -p /data/db`
 
-## Further help
+Navigate to these folders in Finder and change the privileges from "Read Only" to "Read & Write" for Everyone. This allows MongoDB to write to these folders. 
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Now, start the local data base while in the project directory.
+`mongod`
+
+To view changes to the project locally, without pushing, run
+`npm start`
+
+In your internet browser, navigate to http://localhost:8080/.
+
+You should see your changes reflected on refresh. 
+
+
+
+
+
+
