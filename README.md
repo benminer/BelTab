@@ -47,7 +47,11 @@ Start the local data base while in the project directory.
 
 `mongod`
 
-To view changes to the project locally, open a new Terminal window and go the directory of the project, and run
+Now, switch to the develop branch. It contains the proper code for testing locally. Do this by running 
+
+`git checkout develop` and then `git pull` while cd'd into the project. 
+
+Now, to get the local app running, run 
 
 `npm start`
 
