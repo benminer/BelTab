@@ -1,31 +1,56 @@
-# MeanContactlistAngular2
+# JavaScript SCRUM Board // SP17 Software Engineering Project
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project was built from Heroku's MEANContactList2 tutorial.
+https://devcenter.heroku.com/articles/mean-apps-restful-api#prerequisites
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+Heroku CLI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+`brew install heroku`
 
-## Build
+Node.js
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+https://nodejs.org/en/download/
 
-## Running unit tests
+Angular CLI
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`npm install -g angular-cli`
 
-## Running end-to-end tests
+MongoDB
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+`brew install mongodb`
 
-## Deploying to GitHub Pages
+## Installation
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+Clone the repo into a directory of your choice.
 
-## Further help
+`git clone https://github.com/benminer/JS-Scrum-Board.git`
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Navigate to the directory that it was cloned into, then install dependencies.
+
+`npm install`
+
+Log into your Heroku account through terminal to allow commits and pushes.
+
+`heroku login`
+
+## Initialize LocalHost for testing
+
+Make a MongoDB folder in your root directory.
+
+`mkdir -p /data/db`
+
+Navigate to these folders in Finder and change the privileges from "Read Only" to "Read & Write" for Everyone. This allows MongoDB to write to these folders. 
+
+Start the local data base while in the project directory.
+
+`mongod`
+
+To view changes to the project locally, open a new Terminal window and go the directory of the project, and run
+
+`npm start`
+
+In your internet browser, navigate to http://localhost:8080/.
+
+You should see your changes reflected on refresh. 
