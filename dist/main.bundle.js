@@ -68,7 +68,7 @@ var ContactService = (function () {
     return ContactService;
     var _a;
 }());
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/contact.service.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/contact.service.js.map
 
 /***/ }),
 
@@ -103,7 +103,7 @@ if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/main.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/main.js.map
 
 /***/ }),
 
@@ -137,7 +137,7 @@ var AppComponent = (function () {
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/app.component.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/app.component.js.map
 
 /***/ }),
 
@@ -191,7 +191,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/app.module.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/app.module.js.map
 
 /***/ }),
 
@@ -264,7 +264,7 @@ var ContactDetailsComponent = (function () {
     return ContactDetailsComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/contact-details.component.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/contact-details.component.js.map
 
 /***/ }),
 
@@ -360,7 +360,7 @@ var ContactListComponent = (function () {
     return ContactListComponent;
     var _a;
 }());
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/contact-list.component.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/contact-list.component.js.map
 
 /***/ }),
 
@@ -374,7 +374,7 @@ var Contact = (function () {
     }
     return Contact;
 }());
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/contact.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/contact.js.map
 
 /***/ }),
 
@@ -390,7 +390,7 @@ var Contact = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/Users/Ben/mean-contactlist-angular2/src/environment.js.map
+//# sourceMappingURL=/Users/megandickinson/JS-Scrum-Board/src/environment.js.map
 
 /***/ }),
 
@@ -432,7 +432,7 @@ module.exports = "<div *ngIf=\"contact\" class=\"row\">\n  <div class=\"col-md-1
 /***/ 617:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Contacts</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let contact of contacts\"\n        (click)=\"selectContact(contact)\"\n        [class.active]=\"contact === selectedContact\">\n        {{contact.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewContact()\">New</button>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <contact-details\n      [contact]=\"selectedContact\"\n      [createHandler]=\"addContact\"\n      [updateHandler]=\"updateContact\"\n      [deleteHandler]=\"deleteContact\">\n    </contact-details>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Users</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let contact of contacts\"\n        (click)=\"selectContact(contact)\"\n        [class.active]=\"contact === selectedContact\">\n        {{contact.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewContact()\">New</button>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <contact-details\n      [contact]=\"selectedContact\"\n      [createHandler]=\"addContact\"\n      [updateHandler]=\"updateContact\"\n      [deleteHandler]=\"deleteContact\">\n    </contact-details>\n  </div>\n</div>\n"
 
 /***/ }),
 
