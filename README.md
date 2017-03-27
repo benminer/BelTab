@@ -41,16 +41,20 @@ Make a MongoDB folder in your root directory.
 
 `mkdir -p /data/db`
 
-Navigate to these folders in Finder and change the privileges from "Read Only" to "Read & Write" for Everyone. This allows MongoDB to write to these folders. 
+Navigate to these folders in Finder and change the privileges from "Read Only" to "Read & Write" for Everyone. This allows MongoDB to write to these folders.
 
 Start the local data base while in the project directory.
 
 `mongod`
 
-To view changes to the project locally, open a new Terminal window and go the directory of the project, and run
+Now, switch to the develop branch. It contains the proper code for testing locally. Do this by running
+
+`git checkout develop` and then `git pull` while cd'd into the project.
+
+Now, to get the local app running, run
 
 `npm start`
 
 In your internet browser, navigate to http://localhost:8080/.
 
-You should see your changes reflected on refresh. 
+You should see your changes reflected on refresh.
