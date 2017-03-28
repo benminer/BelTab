@@ -4,7 +4,7 @@ import angular from 'angular';
 import routes from './admin.routes';
 import AdminController from './admin.controller';
 
-export default angular.module('sandbox3App.admin', ['sandbox3App.auth', 'ui.router'])
+export default angular.module('scrumApp.admin', ['scrumApp.auth', 'ui.router'])
   .config(routes)
   .controller('AdminController', AdminController)
   .name;

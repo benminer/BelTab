@@ -7,7 +7,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/sandbox3-dev'
+    uri: 'mongodb://localhost/scrum-dev'
   },
 
   // Seed database on startup

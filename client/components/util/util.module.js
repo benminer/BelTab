@@ -5,6 +5,6 @@ import {
   UtilService
 } from './util.service';
 
-export default angular.module('sandbox3App.util', [])
+export default angular.module('scrumApp.util', [])
   .factory('Util', UtilService)
   .name;

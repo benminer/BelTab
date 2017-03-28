@@ -9,7 +9,7 @@ import login from './login';
 import settings from './settings';
 import signup from './signup';
 
-export default angular.module('sandbox3App.account', [uiRouter, login, settings, signup])
+export default angular.module('scrumApp.account', [uiRouter, login, settings, signup])
   .config(routing)
   .run(function($rootScope) {
     'ngInject';

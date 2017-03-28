@@ -38,7 +38,7 @@ export class MainController {
   }
 }
 
-export default angular.module('sandbox3App.main', [uiRouter])
+export default angular.module('scrumApp.main', [uiRouter])
   .config(routing)
   .component('main', {
     template: require('./main.html'),

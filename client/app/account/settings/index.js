@@ -3,6 +3,6 @@
 import angular from 'angular';
 import SettingsController from './settings.controller';
 
-export default angular.module('sandbox3App.settings', [])
+export default angular.module('scrumApp.settings', [])
   .controller('SettingsController', SettingsController)
   .name;

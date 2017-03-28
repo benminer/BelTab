@@ -29,7 +29,7 @@ import socket from '../components/socket/socket.service';
 
 import './app.scss';
 
-angular.module('sandbox3App', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
+angular.module('scrumApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, admin, navbar, footer, main, constants, socket, util
 ])
   .config(routeConfig)
@@ -48,7 +48,7 @@ angular.module('sandbox3App', [ngCookies, ngResource, ngSanitize, 'btford.socket
 
 angular.element(document)
   .ready(() => {
-    angular.bootstrap(document, ['sandbox3App'], {
+    angular.bootstrap(document, ['scrumApp'], {
       strictDi: true
     });
   });

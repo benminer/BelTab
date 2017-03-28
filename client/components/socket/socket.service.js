@@ -80,6 +80,6 @@ function Socket(socketFactory) {
   };
 }
 
-export default angular.module('sandbox3App.socket', [])
+export default angular.module('scrumApp.socket', [])
   .factory('socket', Socket)
   .name;
