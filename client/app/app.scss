@@ -9,17 +9,32 @@ $fa-font-path: '/assets/fonts/font-awesome/';
  * App-wide Styles
  */
 
+ $teal: #4DB6AC;
+ $red: #FF8A65;
+ $copy: #444;
+ $lightcopy: #757575;
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
 }
+* {
+  color: $copy;
+  transition: all 200ms ease-out;
+}
 
 // Component styles are injected through gulp
 /* inject:scss */
 @import 'admin/admin';
 @import 'main/main';
+@import 'projects/projects';
 @import '../components/footer/footer';
 @import '../components/modal/modal';
 /* endinject */
+
+
+.container > .row {
+  margin-bottom: 40px;
+}
