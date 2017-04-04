@@ -28,7 +28,7 @@ export default class LoginController {
       })
         .then(() => {
           // Logged in, redirect to home
-          this.$state.go('projects');
+          this.$state.go('teams');
         })
         .catch(err => {
           this.errors.login = err.message;

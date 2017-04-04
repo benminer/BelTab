@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Teams</h3>
+      <ul id="teams">
+        <li ng-repeat="team in vm.teams"
+          style="background-color:{{vm.getColor($index)}}"
+          ng-click="vm.setActiveTeam(team)">
+
+          <i class="fa fa-rocket fa-2x"></i>
+          {{team.name}}
+        </li>
+        <li class="join">
+          <i class="fa fa-plus"></i>
+          Join a Team
+        </li>
+        <li class="add">
+          <i class="fa fa-plus"></i>
+          Add a Team
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-sm-9" id="projects">
+      <h3>Projects</h3>
+
+      <div class="row" style="border-color:{{activeColor}}">
+        <div class="col-md-4" ng-repeat="proj in vm.projects">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              {{proj.name}}
+            </div>
+            <div class="panel-body">
+              {{proj.description}}
+            </div>
+          </div>
+        </ul>
+      </div>
+      </div>
+
+  </div>
+
+</div>

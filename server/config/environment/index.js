@@ -41,7 +41,8 @@ var all = {
     options: {
       db: {
         safe: true
-      }
+      },
+      promiseLibrary: global.Promise,
     }
   }
 };

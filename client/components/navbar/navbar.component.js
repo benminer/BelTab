@@ -9,8 +9,9 @@ export class NavbarComponent {
     state: 'main'
   },
   {
-    title: 'Projects',
-    state: 'projects'
+    title: 'Teams',
+    state: 'teams',
+    authenticate: true,
   }];
 
   isCollapsed = true;

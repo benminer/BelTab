@@ -16,23 +16,26 @@ import uiBootstrap from 'angular-ui-bootstrap';
 import {
   routeConfig
 } from './app.config';
+import constants from './app.constants';
 
-import _Auth from '../components/auth/auth.module';
 import account from './account';
 import admin from './admin';
+import main from './main/main.component';
+import teams from './teams/teams.component';
+
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
-import main from './main/main.component';
-import projects from './projects/projects.component';
-import constants from './app.constants';
-import util from '../components/util/util.module';
-import socket from '../components/socket/socket.service';
+
+import _Auth from '../services/auth/auth.module';
+import util from '../services/util/util.module';
+import socket from '../services/socket/socket.service';
+import project from '../services/project/project.service'
 
 import './app.scss';
 
 angular.module('scrumApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, admin, navbar, footer, main, constants, socket, util,
-  projects
+  teams, project
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

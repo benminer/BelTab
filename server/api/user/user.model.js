@@ -22,7 +22,12 @@ var UserSchema = new Schema({
   },
   salt: {
     type: String,
-  }
+  },
+
+  teams: [{
+    type: Schema.ObjectId,
+    ref: 'Team',
+  }],
 
 });
 
@@ -36,7 +41,9 @@ UserSchema
   .get(function() {
     return {
       name: this.name,
-      role: this.role
+      email: this.email,
+      role: this.role,
+      teams: this.teams,
     };
   });
 
