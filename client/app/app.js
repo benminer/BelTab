@@ -30,6 +30,7 @@ import _Auth from '../services/auth/auth.module';
 import util from '../services/util/util.module';
 import socket from '../services/socket/socket.service';
 import project from '../services/project/project.service'
+import story from '../services/story/story.service'
 
 import './app.scss';
 
