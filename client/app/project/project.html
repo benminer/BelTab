@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{vm.project.name}}</h1>
+    </div>
+    <div class="col-md-12">
+      <p>
+        {{vm.project.description}}
+      </p>
+    </div>
+    <hr/>
+  </div>
+
+  <div class="row" ng-repeat="sprint in vm.project.sprints">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Sprint #{{$index}}</h4>
+        </div>
+        <div class="panel-body">
+          <div class="col-sm-3">
+            <h5>Time Frame</h5>
+            <p>{{sprint.timeFrame}}</p>
+          </div>
+          <div class="col-sm-3">
+            <h5>User Stories</h5>
+            <p>{{sprint.stories.length}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Backlog</h4>
+        </div>
+        <div class="panel-body">
+          <div class="col-sm-3">
+            <h5>User Stories</h5>
+            <p>{{vm.project.stories.length}}</p>
+          </div>
+          <div class="col-sm-3">
+            <h5>Done</h5>
+            <p>{{vm.project.stories.length}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

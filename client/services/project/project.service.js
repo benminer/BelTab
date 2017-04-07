@@ -8,18 +8,25 @@ export function projectService($http, $resource) {
 
   let ProjectResource = $resource('/api/projects/:id/:controller', {id: '@_id'});
 
-  /**
-  * Get projects for a team and cache them;
-  * @param teamId {string}
-  * @return {Promise<Project>[]}
-  */
-  service.getForTeam = function(teamId) {
-    return ProjectResource.query({team: teamId}).$promise
-  }
+  return {
+    /**
+    * Get projects for a team and cache them;
+    * @param teamId {string}
+    * @return {Promise<Project>[]}
+    */
+    getForTeam(teamId) {
+      return ProjectResource.query({team: teamId}).$promise
+    },
 
-  return service;
+    /**
+    * Get a project by id
+    */
+    get(id) {
+      return ProjectResource.get({id}).$promise
+    }
+  };
 }
 
-export default angular.module('jsScrumBoardApp.project', [])
+export default angular.module('jsScrumBoardApp.service', [])
   .service('Project', projectService)
   .name;

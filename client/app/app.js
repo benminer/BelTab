@@ -22,6 +22,7 @@ import account from './account';
 import admin from './admin';
 import main from './main/main.component';
 import teams from './teams/teams.component';
+import project from './project/project.component';
 
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
@@ -29,14 +30,22 @@ import footer from '../components/footer/footer.component';
 import _Auth from '../services/auth/auth.module';
 import util from '../services/util/util.module';
 import socket from '../services/socket/socket.service';
-import project from '../services/project/project.service'
+import projectService from '../services/project/project.service'
 import story from '../services/story/story.service'
 
 import './app.scss';
 
-angular.module('scrumApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-  uiBootstrap, _Auth, account, admin, navbar, footer, main, constants, socket, util,
-  teams, project
+angular.module('scrumApp', [
+  // Angular
+  ngCookies, ngResource, ngSanitize,
+  // 3rd party
+ 'btford.socket-io', uiRouter, uiBootstrap,
+ // Services
+ _Auth, constants, socket, util, projectService, story,
+ // components
+ navbar, footer,
+ // views
+  account, admin, teams, project, main,
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
@@ -55,6 +64,6 @@ angular.module('scrumApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io
 angular.element(document)
   .ready(() => {
     angular.bootstrap(document, ['scrumApp'], {
-      strictDi: true
+      // strictDi: true
     });
   });
