@@ -12,6 +12,10 @@ export class ProjectComponent {
   constructor() {
 
   }
+
+  // openBacklog()
+  //add a user authentication here, if admin more options
+
 }
 
 export default angular.module('jsScrumBoardApp.project', [uiRouter, projectService])
