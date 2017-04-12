@@ -51,6 +51,17 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-sm-3" ui-sref="project.backlog({id:proj._id})">
+      <div class="panel-heading">
+        <!-- //{{proj.name}}  -->
+        <title> Story Backlog</title>
+      </div>
+      <div class="col-md-6" ng-repeat="backlog in vm.projectBacklog"/>
+      </div>
+    </div>
+  </div>
+
 
 
 </div>

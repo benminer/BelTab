@@ -4,6 +4,7 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
 import projectService from '../../services/project/project.service'
+import backlogService from '../../services/project/backlog.service'
 
 import routes from './project.routes';
 
@@ -12,6 +13,10 @@ export class ProjectComponent {
   constructor() {
 
   }
+
+  // openBacklog()
+  //add a user authentication here, if admin more options
+
 }
 
 export default angular.module('jsScrumBoardApp.project', [uiRouter, projectService])
