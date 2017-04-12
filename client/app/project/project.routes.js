@@ -22,8 +22,8 @@ export default function($stateProvider) {
       template: '<project project="$resolve.project"></project>',
     })
     .state('project.backlog', {
-      url: '',
+      url: '/backlog',
       parent: 'project',
-      template: '<project project="$resolve.project"></project>',
+      template: '<backlog project="$resolve.project"></project>',
     });
 }

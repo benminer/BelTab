@@ -16,9 +16,9 @@ export class BacklogComponent {
 
 export default angular.module('jsScrumBoardApp.projectBacklog', [uiRouter, backlogService])
   .config(routes)
-  .component('project', {
-    template: require('./project.html'),
-    controller: ProjectComponent,
+  .component('backlog', {
+    template: require('./backlog.html'),
+    controller: backlogComponent,
     controllerAs: 'vm',
     bindings: {project: '='}
   })

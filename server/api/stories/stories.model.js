@@ -3,14 +3,8 @@
 import mongoose from 'mongoose';
 import {registerEvents} from './stories.events';
 
-var ProjectSchema = new mongoose.Schema({
-  name: String,
+var StorySchema = new mongoose.Schema({
   description: String,
-
-  active: {
-    type: Boolean,
-    default: true,
-  },
 
   creator: {
     type: mongoose.Schema.ObjectId,
@@ -22,7 +16,24 @@ var ProjectSchema = new mongoose.Schema({
     ref: 'Project',
   },
 
+  priority: {
+    type: Number
+  },
+
+  tasks: [{
+    content: String,
+  }],
+
+  completed: {
+    default: false,
+    type: Boolean
+  },
+
 });
+
+// StorySchema.methods.addTask = function(task) {
+//   this.tasks.push(task)
+// }
 
 registerEvents(StorySchema);
 export default mongoose.model('Story', StorySchema);

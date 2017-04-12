@@ -4,7 +4,6 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
 import projectService from '../../services/project/project.service'
-import backlogService from '../../services/project/backlog.service'
 
 import routes from './project.routes';
 
