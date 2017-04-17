@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <h1>{{vm.project.name}}</h1>
+    </div>
+    <div class="col-md-6">
+      <a class="pull-right btn" ng-click="vm.addSprint()">New Sprint</a>
+      <a class="pull-right" ui-sref="project.backlog">Backlog</a>
     </div>
     <div class="col-md-12">
       <p>
@@ -47,17 +51,6 @@
             <p>{{vm.project.stories.length}}</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-3" ui-sref="project.backlog({id:proj._id})">
-      <div class="panel-heading">
-        <!-- //{{proj.name}}  -->
-        <title> Story Backlog</title>
-      </div>
-      <div class="col-md-6" ng-repeat="backlog in vm.projectBacklog"/>
       </div>
     </div>
   </div>

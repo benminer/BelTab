@@ -4,6 +4,7 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
 import projectService from '../../services/project/project.service'
+import { default as swal }  from 'sweetalert2'
 
 import routes from './project.routes';
 
@@ -12,7 +13,22 @@ export class ProjectComponent {
   constructor() {
 
   }
+  addSprint() {
+    swal({
+      title: "New Sprint",
+      text: "How long is this sprint?",
+      input: "number",
+      confirmButtonText: "Start Sprint",
+      showCancelButton: true,
+    })
+    .then(length => {
+      this.project.addSprint({length})
+        .then(sprint => {
+          console.log(sprint);
+        })
+    })
 
+  }
   // openBacklog()
   //add a user authentication here, if admin more options
 

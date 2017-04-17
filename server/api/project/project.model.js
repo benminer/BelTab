@@ -2,6 +2,7 @@
 
 import mongoose from 'mongoose';
 import {registerEvents} from './project.events';
+import Story from '../stories/stories.model'
 
 var ProjectSchema = new mongoose.Schema({
   name: String,
@@ -27,9 +28,15 @@ var ProjectSchema = new mongoose.Schema({
     ref: 'Team',
   },
 
+  stories: [{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Story',
+    default: []
+  }]
+
 });
 ProjectSchema.methods.addStory = function(story) {
-  return this.addStories([Story])
+  return this.addStories([story])
   .then(res => {
     // [team, user]
     return [res[0], res[1][0]]
@@ -41,15 +48,15 @@ ProjectSchema.methods.addStory = function(story) {
 * @param users {User[]} - users to add
 * @returns {Promise}
 */
-ProjectSchema.methods.addStory = function(story) {
-  this.stories = this.stories.concat(stories.map(u => u._id));
+ProjectSchema.methods.addStories = function(stories) {
+  this.stories = this.stories.concat(stories.map(s => s._id));
 
   return Promise.all([
     this.save(),
-    Promise.all(stories.map(u => {
-      if (u.projects.indexOf(this._id) !== -1) return u;
-      u.projects.push(this._id);
-      return u.save();
+    Promise.all(stories.map(s => {
+      if (s.project === this._id) return s;
+      s.project = this._id;
+      return s.save();
     }))
   ])
 }

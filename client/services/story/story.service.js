@@ -14,8 +14,9 @@ export function storyService($http, $resource) {
   * @param projectId {string}
   * @return {Promise<Story>[]}
   */
-  service.getForProject = function(storyId) {
-    return StoryResource.query({story: storyId}).$promise
+  service.getForProject = function(projectId) {
+    console.log(projectId);
+    return StoryResource.query({project: projectId}).$promise
   }
 
   return service;

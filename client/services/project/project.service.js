@@ -2,11 +2,18 @@
 const angular = require('angular');
 
 /*@ngInject*/
-export function projectService($http, $resource) {
+export function projectService($http, $resource, Sprint) {
 
   let service = {};
 
-  let ProjectResource = $resource('/api/projects/:id/:controller', {id: '@_id'});
+  let ProjectResource = $resource('/api/projects/:id/:controller', {id: '@_id'}, {
+    addSprint: {
+      method: 'POST',
+      params: {
+        controller: 'sprint',
+      }
+    }
+  });
 
   return {
     /**
@@ -24,6 +31,7 @@ export function projectService($http, $resource) {
     get(id) {
       return ProjectResource.get({id}).$promise
     }
+
   };
 }
 

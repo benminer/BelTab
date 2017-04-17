@@ -8,6 +8,7 @@ import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Team from '../api/team/team.model';
 import Project from '../api/project/project.model';
+import Story from '../api/stories/stories.model'
 import config from './environment/';
 
 export default function seedDatabaseIfNeeded() {
@@ -140,7 +141,29 @@ export default function seedDatabaseIfNeeded() {
                           projects[5],
                         ])
                       ])
-                    });
+                      .then(() => {
+                        return projects;
+                      })
+                      .catch(err => {
+                        console.log('version err')
+                        console.log(err);
+                        return projects;
+                      })
+                    })
+                  .then(projects => {
+                    let p1 = projects[1];
+
+                    console.log('asdf')
+                    console.log(p1);
+
+                    Story.insertMany([
+                      {description: 'asdf'},
+                    ])
+                    .then(stories => {
+                      return p1.addStories(stories)
+                    })
+
+                  })
                 })
             })
 

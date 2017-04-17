@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./stories.controller');
+var controller = require('./sprint.controller');
 
 var router = express.Router();
 
