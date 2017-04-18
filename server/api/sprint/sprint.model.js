@@ -5,8 +5,12 @@ import {registerEvents} from './sprint.events';
 
 var SprintSchema = new mongoose.Schema({
   name: String,
-  info: String,
-  active: Boolean
+  length: Number,
+  active: Boolean,
+  project: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Project',
+  },
 });
 
 registerEvents(SprintSchema);

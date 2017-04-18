@@ -12,6 +12,8 @@
 
 import jsonpatch from 'fast-json-patch';
 import Project from './project.model';
+import Sprint from '../sprint/sprint.model';
+
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -59,6 +61,7 @@ function handleEntityNotFound(res) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
+    console.log(err);
     res.status(statusCode).send(err);
   };
 }
@@ -85,9 +88,21 @@ export function create(req, res) {
     .catch(handleError(res));
 }
 export function createSprint(req, res) {
-  let body = req.body;
+  let body = req.query;
   body.project = req.params.id;
-  return Sprint.create(body)
+
+  console.log(body);
+  return Promise.all([
+    Sprint.create(body),
+    Project.findById(req.params.id),
+  ])
+    .then(results => {
+      let [sprint, project] = results;
+      return project.addSprint(sprint);
+    })
+    .then(results => {
+      return results[0];
+    })
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }

@@ -32,6 +32,11 @@ var ProjectSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'Story',
     default: []
+  }],
+  sprints: [{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Sprint',
+    default: []
   }]
 
 });
@@ -54,6 +59,27 @@ ProjectSchema.methods.addStories = function(stories) {
   return Promise.all([
     this.save(),
     Promise.all(stories.map(s => {
+      if (s.project === this._id) return s;
+      s.project = this._id;
+      return s.save();
+    }))
+  ])
+}
+
+ProjectSchema.methods.addSprint = function(sprint) {
+  return this.addSprints([sprint])
+  .then(res => {
+    // [team, user]
+    return [res[0], res[1][0]]
+  });
+}
+
+ProjectSchema.methods.addSprints = function(sprints) {
+  this.sprints = this.sprints.concat(sprints.map(s => s._id));
+
+  return Promise.all([
+    this.save(),
+    Promise.all(sprints.map(s => {
       if (s.project === this._id) return s;
       s.project = this._id;
       return s.save();

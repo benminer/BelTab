@@ -22,7 +22,7 @@ export class ProjectComponent {
       showCancelButton: true,
     })
     .then(length => {
-      this.project.addSprint({length})
+      this.project.$addSprint({length})
         .then(sprint => {
           console.log(sprint);
         })
