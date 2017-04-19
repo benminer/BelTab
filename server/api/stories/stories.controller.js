@@ -77,6 +77,12 @@ export function show(req, res) {
   .catch(handleError(res));
 }
 
+export function create(req, res) {
+  return Story.create(req.body)
+    .then(respondWithResult(res, 201))
+    .catch(handleError(res));
+}
+
 //Upserts the given Story ID in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {

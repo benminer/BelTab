@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <h1>{{vm.project.name}}</h1>
+    </div>
+    <div class="col-md-6">
+      <a class="pull-right btn" ng-click="vm.addSprint()">New Sprint</a>
+      <a class="pull-right btn" ui-sref="project.backlog">Backlog</a>
     </div>
     <div class="col-md-12">
       <p>
@@ -11,21 +15,44 @@
     <hr/>
   </div>
 
+
+
+
   <div class="row" ng-repeat="sprint in vm.project.sprints">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Sprint #{{$index}}</h4>
+
+          <h4>
+            <span uib-dropdown on-toggle="toggled(open)">
+            <a href id="simple-dropdown" uib-dropdown-toggle>
+              <i class="fa fa-bars btn" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+              <li role="menuitem"><a ng-click="vm.project.sprints.splice(sprints.index,1)">Delete Sprint</a></li>
+              <li role="menuitem"><a href="#">Add User Story</a></li>
+              <li role="menuitem"><a href="#">Add Task</a></li>
+            </ul>
+          </span>Sprint #{{$index}} </h4>
         </div>
         <div class="panel-body">
-          <div class="col-sm-3">
-            <h5>Time Frame</h5>
-            <p>{{sprint.timeFrame}}</p>
-          </div>
-          <div class="col-sm-3">
-            <h5>User Stories</h5>
-            <p>{{sprint.stories.length}}</p>
-          </div>
+          <table class="col-md-12 borderless">
+       <thead>
+      <tr>
+        <th class="col-sm-3">User Stories</th>
+        <th class="col-sm-3">To Do</th>
+        <th class="col-sm-3">In Progress</th>
+        <th class="col-sm-3">Finished</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="col-sm-3" >Story</td>
+        <td class="col-sm-3">Task</td>
+        <td class="col-sm-3">Task</td>
+      </tr>
+          </table>
         </div>
       </div>
     </div>

@@ -23,6 +23,8 @@ import admin from './admin';
 import main from './main/main.component';
 import teams from './teams/teams.component';
 import project from './project/project.component';
+import backlog from './project/backlog/backlog.component';
+
 
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
@@ -30,9 +32,12 @@ import footer from '../components/footer/footer.component';
 import _Auth from '../services/auth/auth.module';
 import util from '../services/util/util.module';
 import socket from '../services/socket/socket.service';
-import projectService from '../services/project/project.service'
+
+
 import TeamService from '../services/team/team.service'
-import story from '../services/story/story.service'
+import projectService from '../services/project/project.service';
+import story from '../services/story/story.service';
+import sprint from '../services/sprint/sprint.service';
 
 import './app.scss';
 
@@ -42,11 +47,11 @@ angular.module('scrumApp', [
   // 3rd party
  'btford.socket-io', uiRouter, uiBootstrap,
  // Services
- _Auth, constants, socket, util, projectService, story, TeamService,
+ _Auth, constants, socket, util, projectService, story, TeamService, sprint,
  // components
  navbar, footer,
  // views
-  account, admin, teams, project, main,
+  account, admin, teams, project, main, backlog
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
