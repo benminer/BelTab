@@ -12,6 +12,7 @@
 
 import jsonpatch from 'fast-json-patch';
 import Team from './team.model';
+import User from '../user/user.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -59,6 +60,8 @@ function handleEntityNotFound(res) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
+    console.log('error')
+    console.log(err);
     res.status(statusCode).send(err);
   };
 }
@@ -93,6 +96,31 @@ export function upsert(req, res) {
   return Team.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function addUser(req, res) {
+  console.log(req.params)
+  console.log(req.body)
+
+  return Promise.all([
+    Team.findById(req.params.id).exec(),
+    User.findById(req.body.userId).exec(),
+  ])
+  .then(results => {
+    let [team, user] = results;
+    console.log(results)
+
+    if(!team || !user) {
+      return res.status(404).end();
+    }
+
+    return team.addMember(user)
+      .then(results => {
+        let [team, member] = results;
+        return res.json({team, member})
+      });
+  })
     .catch(handleError(res));
 }
 

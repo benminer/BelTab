@@ -10,11 +10,11 @@
           <i class="fa fa-rocket fa-2x"></i>
           {{team.name}}
         </li>
-        <li class="join">
+        <li class="join" ng-click="vm.joinTeam()">
           <i class="fa fa-plus"></i>
           Join a Team
         </li>
-        <li class="add">
+        <li class="add" ng-click="vm.createTeam()">
           <i class="fa fa-plus"></i>
           Add a Team
         </li>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="col-sm-9" id="projects">
-      <h3>Projects</h3>
+      <h4>{{vm.activeTeam.name}} <small>{{vm.activeTeam._id}}</small></h4>
 
       <div class="row" style="border-color:{{activeColor}}">
         <div class="col-md-4" ng-repeat="proj in vm.projects">

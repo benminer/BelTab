@@ -31,6 +31,7 @@ import _Auth from '../services/auth/auth.module';
 import util from '../services/util/util.module';
 import socket from '../services/socket/socket.service';
 import projectService from '../services/project/project.service'
+import TeamService from '../services/team/team.service'
 import story from '../services/story/story.service'
 
 import './app.scss';
@@ -41,7 +42,7 @@ angular.module('scrumApp', [
   // 3rd party
  'btford.socket-io', uiRouter, uiBootstrap,
  // Services
- _Auth, constants, socket, util, projectService, story,
+ _Auth, constants, socket, util, projectService, story, TeamService,
  // components
  navbar, footer,
  // views

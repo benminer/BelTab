@@ -1,5 +1,7 @@
 'use strict';
+
 const angular = require('angular');
+import { default as swal } from 'sweetalert2'
 
 const uiRouter = require('angular-ui-router');
 
@@ -7,8 +9,9 @@ import routes from './teams.routes';
 
 export class TeamsComponent {
   /*@ngInject*/
-  constructor(Project, $scope, Auth) {
+  constructor(Project, $scope, Auth, Team) {
     this.Project = Project;
+    this.Team = Team;
     this.$scope = $scope;
     this.user = Auth.getCurrentUser();
     this.teams = [];
@@ -30,9 +33,10 @@ export class TeamsComponent {
   setActiveTeam(t) {
     if (!t) return;
 
+    this.activeTeam = t;
+
     let c = this.teams.indexOf(t);
     this.$scope.activeColor = this.getColor(c);
-    // this.$scope.$apply();
 
     this.Project.getForTeam(t._id)
       .then(projects => {
@@ -49,6 +53,44 @@ export class TeamsComponent {
     ][i%4]
   }
 
+  createTeam() {
+    swal({
+      title: "Add a Team",
+      text: "What is the name of the team?",
+      input: "text",
+      confirmButtonText: "Create Team",
+      showCancelButton: true,
+    })
+    .then(name => {
+      return this.Team.create({name});
+    })
+    .then(team => {
+      console.log(team);
+      this.teams.push(team);
+      this.setActiveTeam(team);
+    })
+  }
+
+  joinTeam() {
+    swal({
+      title: 'Join a Team',
+      text: 'Enter the team ID',
+      input: "text",
+      confirmButtonText: "Join Team",
+      showCancelButton: true,
+    })
+      .then(teamId => {
+        this.Team.addUser(teamId)
+          .then(team => {
+            console.log(team);
+            this.teams.push(team);
+            this.setActiveTeam(team);
+          })
+          .catch(err => {
+            swal('Not Found', 'The specified team could not be found', 'error');
+          })
+      })
+  }
 
 }
 
