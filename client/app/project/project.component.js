@@ -13,6 +13,7 @@ export class ProjectComponent {
   constructor() {
 
   }
+
   addSprint() {
     swal({
       title: "New Sprint",

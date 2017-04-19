@@ -9,8 +9,9 @@ import routes from './teams.routes';
 
 export class TeamsComponent {
   /*@ngInject*/
-  constructor(Project, $scope, Auth, Team) {
+  constructor(Project, $scope, Auth, Team, $state) {
     this.Project = Project;
+    this.$state = $state;
     this.Team = Team;
     this.$scope = $scope;
     this.user = Auth.getCurrentUser();
@@ -88,6 +89,32 @@ export class TeamsComponent {
           })
           .catch(err => {
             swal('Not Found', 'The specified team could not be found', 'error');
+          })
+      })
+  }
+
+  addProject() {
+    swal.setDefaults({
+      input: 'text',
+      type: 'info',
+      confirmButtonText: 'Next &rarr;',
+      showCancelButton: true,
+      progressSteps: ['1', '2', '3'],
+      title: 'Add a Project',
+    });
+
+    swal.queue([
+      {text: 'What is the name of the project?'},
+      {
+        text: 'Give a brief description of the project',
+        input: 'textarea',
+      },
+    ])
+      .then(results => {
+        let [name, description] = results;
+        let team = this.Team.addProject(this.activeTeam._id, {name, description})
+          .then(project => {
+            this.$state.go('project.details', {id: project._id});
           })
       })
   }

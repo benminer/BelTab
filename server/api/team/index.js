@@ -9,7 +9,7 @@ router.get('/', controller.index);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 
-router.post('/:id/project', controller.create);
+router.post('/:id/project', controller.createProject);
 
 router.put('/:id', controller.upsert);
 router.put('/:id/addUser', controller.addUser);

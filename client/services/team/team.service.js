@@ -9,7 +9,14 @@ export function TeamService($http, $resource, Auth) {
 
 	let TeamResource = $resource('/api/teams/:id/:controller', {
 		id: '@_id'
-	}, {});
+	}, {
+		addProject: {
+			method: 'POST',
+			params: {
+				controller: 'project'
+			}
+		}
+	});
 
 	return {
 
@@ -36,19 +43,23 @@ export function TeamService($http, $resource, Auth) {
 		addUser(teamId) {
 			return Promise.resolve(user)
 				.then(u => {
-          console.log(u);
-          console.log(u._id);
 					return $http.put(`/api/teams/${teamId}/addUser`, {
 							userId: u._id,
-              test: true,
 						})
 						.then(res => {
-							console.log(res);
 							return res.data.team;
 						})
 				})
 
 		},
+
+		addProject(teamId, project) {
+			return $http.post(`/api/teams/${teamId}/project`, project)
+					.then(res => {
+						console.log(res.data);
+						return res.data.project;
+					});
+		}
 
 	};
 }

@@ -13,6 +13,7 @@
 import jsonpatch from 'fast-json-patch';
 import Team from './team.model';
 import User from '../user/user.model';
+import Project from '../project/project.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -85,6 +86,24 @@ export function show(req, res) {
 export function create(req, res) {
   return Team.create(req.body)
     .then(respondWithResult(res, 201))
+    .catch(handleError(res));
+}
+
+export function createProject(req, res) {
+  console.log(req.body);
+  return Promise.all([
+    Team.findById(req.params.id),
+    Project.create(req.body),
+  ])
+    .then(results => {
+      console.log(results);
+      let [team, proj] = results;
+      return team.addProject(proj);
+    })
+    .then(results => {
+      let [team, project] = results;
+      return res.json({team, project})
+    })
     .catch(handleError(res));
 }
 
