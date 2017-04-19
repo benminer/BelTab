@@ -13,6 +13,11 @@ export class ProjectComponent {
   constructor() {
 
   }
+
+  $onInit() {
+  this.renderBurndown()
+}
+
   addSprint() {
     swal({
       title: "New Sprint",
@@ -29,6 +34,12 @@ export class ProjectComponent {
     })
 
   }
+
+  renderBurndown() {
+
+}
+
+
   // openBacklog()
   //add a user authentication here, if admin more options
 
