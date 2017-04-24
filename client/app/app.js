@@ -28,6 +28,7 @@ import backlog from './project/backlog/backlog.component';
 
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
+import story from '../components/story/story.component';
 
 import _Auth from '../services/auth/auth.module';
 import util from '../services/util/util.module';
@@ -36,7 +37,7 @@ import socket from '../services/socket/socket.service';
 
 import TeamService from '../services/team/team.service'
 import projectService from '../services/project/project.service';
-import story from '../services/story/story.service';
+import storyService from '../services/story/story.service';
 import sprint from '../services/sprint/sprint.service';
 
 import './app.scss';
@@ -49,7 +50,7 @@ angular.module('scrumApp', [
  // Services
  _Auth, constants, socket, util, projectService, story, TeamService, sprint,
  // components
- navbar, footer,
+ navbar, footer, story,
  // views
   account, admin, teams, project, main, backlog
 ])

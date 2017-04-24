@@ -12,6 +12,12 @@ export function projectService($http, $resource, Sprint) {
       params: {
         controller: 'sprint',
       }
+    },
+    addUserStory: {
+      method: 'POST',
+      params: {
+        controller: 'story',
+      }
     }
   });
 

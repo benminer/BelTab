@@ -13,6 +13,7 @@
 import jsonpatch from 'fast-json-patch';
 import Project from './project.model';
 import Sprint from '../sprint/sprint.model';
+import Story from '../stories/stories.model';
 
 
 function respondWithResult(res, statusCode) {
@@ -75,7 +76,13 @@ export function index(req, res) {
 
 // Gets a single Project from the DB
 export function show(req, res) {
-  return Project.findById(req.params.id).exec()
+  return Project.findById(req.params.id)
+    .populate({
+      path: 'sprints',
+      populate: { path: 'stories' }
+    })
+    .populate('stories')
+    .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -99,9 +106,31 @@ export function createSprint(req, res) {
     .then(results => {
       let [sprint, project] = results;
       return project.addSprint(sprint);
+      // todo populate sprints
     })
     .then(results => {
-      return results[0];
+      return results[0].populate("sprints").execPopulate();
+    })
+    .then(respondWithResult(res, 201))
+    .catch(handleError(res));
+}
+//CREATE STORY
+export function createStory(req, res) {
+  let body = req.query;
+  body.project = req.params.id;
+
+  console.log(body);
+  return Promise.all([
+    Story.create(body),
+    Project.findById(req.params.id),
+  ])
+    .then(results => {
+      let [story, project] = results;
+      return project.addUserStory(story);
+      // todo populate stories
+    })
+    .then(results => {
+      return results[0].populate("stories").execPopulate();
     })
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
