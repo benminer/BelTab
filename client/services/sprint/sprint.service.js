@@ -5,17 +5,21 @@ const angular = require('angular');
 export function sprintService($resource) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
 
-  let SprintResource = $resource('/api/sprints/:id/:controller', {id: '@_id'});
+	let SprintResource = $resource('/api/sprints/:id/:controller', {id: '@_id' }, {
+		'update': {
+			method: 'PUT'
+		}
+	});
 
-  let service = {};
+	let service = {};
 
-  service.create = function(body) {
-    return new SprintResource(body);
-  }
+	service.create = function (body) {
+		return new SprintResource(body);
+	}
 
-  return service;
+	return service;
 }
 
 export default angular.module('jsScrumBoardApp.sprint', [])
-  .service('Sprint', sprintService)
-  .name;
+	.service('Sprint', sprintService)
+	.name;
