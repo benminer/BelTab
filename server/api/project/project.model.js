@@ -40,7 +40,7 @@ var ProjectSchema = new mongoose.Schema({
   }]
 
 });
-ProjectSchema.methods.addUserStory = function(story) {
+ProjectSchema.methods.addStory = function(story) {
   return this.addStories([story])
   .then(res => {
     // [team, user]

@@ -6,19 +6,13 @@ const uiRouter = require('angular-ui-router');
 import Chart from 'chart.js';
 
 import projectService from '../../services/project/project.service'
-<<<<<<< Updated upstream
 import {
 	default as swal
 } from 'sweetalert2'
-=======
-import storyService from '../../services/story/story.service'
-import { default as swal }  from 'sweetalert2'
->>>>>>> Stashed changes
 
 import routes from './project.routes';
 
 export class ProjectComponent {
-<<<<<<< Updated upstream
 	/*@ngInject*/
 	constructor() {
 
@@ -90,51 +84,6 @@ export class ProjectComponent {
         },
       }
 		});
-=======
-  /*@ngInject*/
-  constructor($scope) {
-    console.log(this.project)
-
-  }
-  $onInit() {
-    console.log(this.project)
-
-  }
-  addSprint() {
-    swal({
-      title: "New Sprint",
-      text: "How many days is this sprint?",
-      input: "number",
-      confirmButtonText: "Start Sprint",
-      showCancelButton: true,
-    })
-    .then(length => {
-      this.project.$addSprint({length})
-        .then(sprint => {
-          console.log(sprint);
-        })
-    })
-
-  }
-
-  addUserStory() {
-    swal({
-      title: "New User Story",
-      text: "Give a short description of the story.",
-      input: "text",
-      confirmButtonText: "Add Story",
-      showCancelButton: true,
-      })
-
-      .then(description => {
-        this.project.$addUserStory({description})
-        .then(story => {
-          console.log(story);
-        })
-      })
-  }
-
->>>>>>> Stashed changes
 
 	}
 }

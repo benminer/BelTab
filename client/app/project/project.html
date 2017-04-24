@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6">
       <a class="pull-right btn" ng-click="vm.addSprint()">New Sprint</a>
-      <a class="pull-right btn" ui-sref="project.burndown">Burndown</a>
+      <a class="pull-right btn" ui-sref="project.backlog">Backlog</a>
     </div>
     <div class="col-md-12">
       <p>
@@ -41,7 +41,7 @@
             </a>
             <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
               <li role="menuitem"><a ng-click="vm.project.sprints.splice(sprints.index,1)">Delete Sprint</a></li>
-              <li role="menuitem"><a ng-click="vm.addUserStory()">Add User Story</a></li>
+              <li role="menuitem"><a href="#">Add User Story</a></li>
               <li role="menuitem"><a href="#">Add Task</a></li>
             </ul>
           </span>Sprint #{{$index}} </h4>
@@ -59,11 +59,7 @@
     <tbody>
       <tr>
 
-        <td class="col-sm-3" >
-
-
-
-        </td>
+        <td class="col-sm-3" >Story</td>
         <td class="col-sm-3">Task</td>
         <td class="col-sm-3">Task</td>
       </tr>
@@ -82,7 +78,11 @@
         <div class="panel-body">
           <div class="col-sm-3">
             <h5>User Stories</h5>
-            <story ng-repeat="story in vm.project.stories" doc="story"></story>
+            <p>{{vm.project.stories.length}}</p>
+          </div>
+          <div class="col-sm-3">
+            <h5>Done</h5>
+            <p>{{vm.project.stories.length}}</p>
           </div>
         </div>
       </div>
