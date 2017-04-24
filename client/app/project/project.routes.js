@@ -21,9 +21,17 @@ export default function($stateProvider) {
       parent: 'project',
       template: '<project project="$resolve.project"></project>',
     })
-    .state('project.burndown', {
-      url: '/burndown',
+    .state('project.backlog', {
+      url: '/backlog',
       parent: 'project',
-      template: '<burndown project="$resolve.project" stories="$resolve.stories"></burndown>',
-    })
+      template: '<backlog project="$resolve.project" stories="$resolve.stories"></backlog>',
+      resolve: {
+        stories: function($stateParams, Story) {
+          return Story.getForProject($stateParams.id)
+            .then(stories => {
+              console.log(stories);
+            })
+        }
+      },
+    });
 }

@@ -22,6 +22,6 @@ export function storyService($http, $resource) {
   return service;
 }
 
-export default angular.module('jsScrumBoardApp.project.storyService', [])
+export default angular.module('jsScrumBoardApp.project.story', [])
   .service('Story', storyService)
   .name;
