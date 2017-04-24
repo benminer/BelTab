@@ -107,6 +107,25 @@ export function createSprint(req, res) {
     .catch(handleError(res));
 }
 
+export function endSprint(req, res) {
+  let body = req.query;
+  body.project = req.params.id;
+
+  return Promise.all([
+    Sprint.end(body),
+    Project.findById(req.params.id),
+  ])
+  .then(results => {
+    let [spring, project] = results;
+    return project.endSprint(sprint);
+  })
+  .then(results => {
+    return results[0];
+  })
+  .then(respondWithResult(res,201))
+  .catch(handleError(res));
+}
+
 // Upserts the given Project in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {

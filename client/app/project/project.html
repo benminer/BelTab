@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6">
       <a class="pull-right btn" ng-click="vm.addSprint()">New Sprint</a>
-      <a class="pull-right btn" ui-sref="project.backlog">Backlog</a>
+      <a class="pull-right btn" ui-sref="project.backlog">Burndown</a>
     </div>
     <div class="col-md-12">
       <p>
@@ -44,6 +44,8 @@
               <li role="menuitem"><a href="#">Add User Story</a></li>
               <li role="menuitem"><a href="#">Add Task</a></li>
             </ul>
+            <a class="pull-right btn" ng-hide="sprint.status === 'active'">Sprint Active</a>
+            <a class="pull-right btn" ng-click="vm.endSprint()">End Sprint</a>
           </span>Sprint #{{$index}} </h4>
         </div>
         <div class="panel-body">

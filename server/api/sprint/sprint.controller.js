@@ -84,7 +84,13 @@ export function create(req, res) {
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
-
+//declares a Spring ended
+export function end(req, res) {
+  Sprint.active = false;
+  return Sprint.end(req.body)
+  .then(respondWithResult(res, 201))
+  .catch(handleError(res));
+}
 // Upserts the given Sprint in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
